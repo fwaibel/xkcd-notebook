@@ -1,11 +1,12 @@
 version: '3'
 services:
-  xkcd:
+  xkcd-jupiterhub:
     build: .
     ports:
      - "8888:8888"
     volumes:
      - ./work:/home/jovyan/work
+     - .aws/credentials:/home/jovyan/.aws/credentials
     environment:
       - JUPYTER_ENABLE_LAB=true
       - JUPYTER_TOKEN=xkcd
